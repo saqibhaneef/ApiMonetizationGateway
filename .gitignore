@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/.vs/ApiMonetizationGateway
+/src/ApiMonetizationGateway/.vs/ApiMonetizationGateway
+/src/ApiMonetizationGateway/bin/Debug/net8.0
+/src/ApiMonetizationGateway/obj
+*.db
+*.db-shm
+*.db-wal
