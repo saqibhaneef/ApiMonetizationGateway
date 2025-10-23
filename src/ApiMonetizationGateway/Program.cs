@@ -3,12 +3,61 @@ using ApiMonetizationGateway.Data;
 using ApiMonetizationGateway.Middleware;
 using ApiMonetizationGateway.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// ✅ Swagger config with custom headers
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Monetization Gateway", Version = "v1" });
+
+    // Add custom header definitions
+    c.AddSecurityDefinition("X-Customer-Id", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "X-Customer-Id",
+        Type = SecuritySchemeType.ApiKey,
+        Description = "Customer ID header (required)"
+    });
+
+    c.AddSecurityDefinition("X-User-Id", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "X-User-Id",
+        Type = SecuritySchemeType.ApiKey,
+        Description = "User ID header (optional)"
+    });
+
+    // Apply them globally
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "X-Customer-Id"
+                }
+            },
+            Array.Empty<string>()
+        },
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "X-User-Id"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 // Config and Db
 builder.Services.Configure<TierConfig>(builder.Configuration.GetSection("Tiers"));
@@ -26,7 +75,16 @@ builder.Services.AddHostedService<MonthlySummaryWorker>();
 var app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI();
+if (builder.Environment.IsDevelopment())
+{
+    app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
+}
+
+
 
 
 app.UseMiddleware<RateLimitMiddleware>();

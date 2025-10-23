@@ -1,11 +1,12 @@
+using ApiMonetizationGateway.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiMonetizationGateway.Services;
 
 public class UsageTrackingService : IUsageTrackingService
 {
-    private readonly ApiMonetizationGateway.Data.GatewayDbContext _db;
-    public UsageTrackingService(ApiMonetizationGateway.Data.GatewayDbContext db)
+    private readonly GatewayDbContext _db;
+    public UsageTrackingService(GatewayDbContext db)
     {
         _db = db;
     }
