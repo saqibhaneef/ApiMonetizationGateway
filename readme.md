@@ -34,10 +34,13 @@ It sits between external API users and internal services to:
 You can pull the prebuilt image from Docker Hub:
 ```bash
 docker pull saqibhaneef/apimonetizationgateway:latest
+````
 
 ###	2. Run the container
 Map a local port (e.g., 8090) to the container’s internal port (8080):
+```bash
 docker run -d -p 8090:8080 --name api-gateway saqibhaneef/apimonetizationgateway:latest
+````
 
 ### 3. Access the API
 Swagger UI: http://localhost:8090/
