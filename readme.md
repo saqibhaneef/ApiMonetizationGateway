@@ -23,6 +23,9 @@ It sits between external API users and internal services to:
 | **Monthly Summary** | Aggregates usage for each customer automatically |
 | **Docker Support** | Build, run, and test easily using Docker |
 
+## 🧱 ERD Diagram
+![ERD Diagram](./Others/ErdDiagram.png)
+
 ---
 
 ## 🐳 Run with Docker
