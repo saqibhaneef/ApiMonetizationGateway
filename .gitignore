@@ -10,3 +10,5 @@
 *.db
 *.db-shm
 *.db-wal
+/src/ApiMonetizationGateway.Tests/bin/Debug/net8.0
+/src/ApiMonetizationGateway.Tests/obj

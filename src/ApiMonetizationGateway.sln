@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMonetizationGateway", "ApiMonetizationGateway\ApiMonetizationGateway.csproj", "{091BF33B-7BB3-C06C-8AF9-C9B3180847F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiMonetizationGateway.Tests", "ApiMonetizationGateway.Tests\ApiMonetizationGateway.Tests.csproj", "{8FDD5AEB-6452-40CF-8C33-5BA8B4BC2F26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{091BF33B-7BB3-C06C-8AF9-C9B3180847F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{091BF33B-7BB3-C06C-8AF9-C9B3180847F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{091BF33B-7BB3-C06C-8AF9-C9B3180847F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDD5AEB-6452-40CF-8C33-5BA8B4BC2F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDD5AEB-6452-40CF-8C33-5BA8B4BC2F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDD5AEB-6452-40CF-8C33-5BA8B4BC2F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDD5AEB-6452-40CF-8C33-5BA8B4BC2F26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

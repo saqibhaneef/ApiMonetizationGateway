@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-// ✅ Swagger config with custom headers
+
+// Swagger config with custom headers
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Monetization Gateway", Version = "v1" });
@@ -120,4 +121,8 @@ catch (Exception ex)
 {
     Console.WriteLine("Startup failed:");
     Console.WriteLine(ex);
+}
+
+public partial class Program
+{
 }
