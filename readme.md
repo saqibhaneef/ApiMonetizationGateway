@@ -46,6 +46,10 @@ docker run -d -p 8090:8080 --name api-gateway saqibhaneef/apimonetizationgateway
 Swagger UI: http://localhost:8090/
 Example API call:
 
+![Free Customer](./Others/FreeCustomer.png)
+
+## . Pro Customer
+![Pro Customer](./Others/ProCustomer.png)
 ---
 
 | Tier | Monthly Quota          | Rate Limit         | Price     |
