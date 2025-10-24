@@ -15,7 +15,7 @@ namespace ApiMonetizationGateway.Services
 
         public async Task<List<Customer>> GetCustomers()
         {
-            var customers =  await this.dbGatewayDbContext.Customers.ToListAsync();
+            var customers =  await this.dbGatewayDbContext.Customers.Include(x=>x.Tier).ToListAsync();
 
             return customers;
         }

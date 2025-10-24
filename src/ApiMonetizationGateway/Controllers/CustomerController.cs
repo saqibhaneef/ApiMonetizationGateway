@@ -14,8 +14,8 @@ namespace ApiMonetizationGateway.Controllers
             this.customerService = customerService;
         }
 
-        [HttpGet("customers")]
-        public async Task<IActionResult> Customers()
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
         {
             var customers = await customerService.GetCustomers();
             return Ok(customers);

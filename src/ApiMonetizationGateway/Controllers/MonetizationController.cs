@@ -4,10 +4,10 @@ namespace ApiMonetizationGateway.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestController : ControllerBase
+public class MonetizationController : ControllerBase
 {
-    [HttpGet("hello")]
-    public IActionResult Hello()
+    [HttpGet("PaidApi")]
+    public IActionResult PaidApi()
     {
         return Ok(new { message = "Hello from internal service", timestamp = DateTime.UtcNow });
     }

@@ -69,6 +69,11 @@ builder.Services.AddDbContext<GatewayDbContext>(opts =>
 
 
 // Services
+
+builder.Services.AddTransient<IApiUsageLogsService, ApiUsageLogsService>();
+builder.Services.AddTransient<ICustomerService, CustomerService>();
+builder.Services.AddTransient<IMonthlySummaryService, MonthlySummaryService>();
+
 builder.Services.AddScoped<IRateLimitService, RateLimitService>();
 builder.Services.AddScoped<IUsageTrackingService, UsageTrackingService>();
 builder.Services.AddHostedService<MonthlySummaryWorker>();
