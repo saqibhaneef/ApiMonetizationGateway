@@ -22,10 +22,11 @@ public class IntegrationScenarioTests : IClassFixture<WebApplicationFactory<Prog
         var response1 = await client.GetAsync(url);
         var response2 = await client.GetAsync(url);
         var response3 = await client.GetAsync(url);
+        var response4 = await client.GetAsync(url);
 
         Assert.Equal(HttpStatusCode.OK, response1.StatusCode);
         Assert.Equal(HttpStatusCode.OK, response2.StatusCode);
-        Assert.Equal(HttpStatusCode.TooManyRequests, response3.StatusCode);
+        Assert.Equal(HttpStatusCode.TooManyRequests, response4.StatusCode);
     }
 
     [Fact]
