@@ -48,8 +48,8 @@ Example API call:
 | Pro  | 100,000 requests/month | 10 requests/second | $50/month |
 
 
-X-Customer-Id: cust-free-1   # Free tier
-X-Customer-Id: cust-pro-1    # Pro tier
+X-Customer-Id and X-User-Id : cust-free-1   # Free tier
+X-Customer-Id and X-User-Id: cust-pro-1    # Pro tier
 
 ---
 
@@ -69,46 +69,6 @@ The diagram below shows how all components interact:
 Flow:
 Client → API Gateway → RateLimit Middleware → RateLimitService → Database
 ↳ MonthlySummaryWorker → Aggregates data and stores summaries.
-
----
-
-## 🧩 ERD (Entity Relationship Diagram)
-
-The system’s database structure is shown below:
-
-Or view the text version:
-
-erDiagram
-    TIER ||--o{ CUSTOMER : has
-    CUSTOMER ||--o{ APIUSAGELOG : generates
-    CUSTOMER ||--o{ MONTHLYSUMMARY : summarized_into
-
-    TIER {
-        int Id
-        string Name
-        int MonthlyQuota
-        int RateLimitPerSecond
-        decimal Price
-    }
-    CUSTOMER {
-        string Id
-        string Name
-        int TierId
-    }
-    APIUSAGELOG {
-        int Id
-        string CustomerId
-        string Endpoint
-        datetime Timestamp
-    }
-    MONTHLYSUMMARY {
-        int Id
-        string CustomerId
-        int Year
-        int Month
-        int RequestCount
-        decimal Price
-    }
 
 ---
 
