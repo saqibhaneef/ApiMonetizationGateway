@@ -81,14 +81,14 @@ builder.Services.AddHostedService<MonthlySummaryWorker>();
 var app = builder.Build();
 
 app.UseSwagger();
-if (builder.Environment.IsDevelopment())
-{
+//if (builder.Environment.IsDevelopment())
+//{
     app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
         options.RoutePrefix = string.Empty;
     });
-}
+//}
 
 
 
