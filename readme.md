@@ -32,16 +32,15 @@ You can pull the prebuilt image from Docker Hub:
 ```bash
 docker pull saqibhaneef/apimonetizationgateway:latest
 
-
 ###	2. Run the container
 Map a local port (e.g., 8090) to the container’s internal port (8080):
 docker run -d -p 8090:8080 --name api-gateway saqibhaneef/apimonetizationgateway:latest
-
 
 ### 3. Access the API
 Swagger UI: http://localhost:8090/
 Example API call:
 
+---
 
 | Tier | Monthly Quota          | Rate Limit         | Price     |
 | ---- | ---------------------- | ------------------ | --------- |
@@ -52,21 +51,18 @@ Example API call:
 X-Customer-Id: cust-free-1   # Free tier
 X-Customer-Id: cust-pro-1    # Pro tier
 
+---
 
-### 🧠 How It Works
+## 🧠 How It Works
 
 Each request goes through a Rate Limit Middleware.
-
 Middleware checks the customer’s tier and rate limit rules.
-
 If within limits → request is logged in the database.
-
 If over limit → returns HTTP 429 (Too Many Requests).
-
 A background worker creates monthly summaries automatically.
 
 
-### 🧭 System Architecture
+## 🧭 System Architecture
 
 The diagram below shows how all components interact:
 
@@ -74,8 +70,9 @@ Flow:
 Client → API Gateway → RateLimit Middleware → RateLimitService → Database
 ↳ MonthlySummaryWorker → Aggregates data and stores summaries.
 
+---
 
-### 🧩 ERD (Entity Relationship Diagram)
+## 🧩 ERD (Entity Relationship Diagram)
 
 The system’s database structure is shown below:
 
@@ -113,15 +110,16 @@ erDiagram
         decimal Price
     }
 
+---
 
-### 🧹 Stop and Remove the Container
+## 🧹 Stop and Remove the Container
 
 If you want to stop and clean up:
 docker stop api-gateway
 docker rm api-gateway
 
 
-### Tech Stack
+## Tech Stack
 
 .NET 8 Web API
 
@@ -135,10 +133,11 @@ xUnit for testing
 
 Docker for containerization
 
-### 📦 Local Development (Optional)
+## 📦 Local Development (Optional)
 
 You can also run it locally without Docker:
 
+---
 
 ### 🧾 Quick Commands Summary
 
