@@ -1,4 +1,10 @@
-﻿# 🧩 API Monetization Gateway
+# Note For reviewer
+The current version is fully functional and was completed on the same day. There’s still room for improvement if time permits.
+At the moment, all endpoints have a rate limit applied. We can improve this by adding a new table to store restricted endpoints and applying limits based on that.
+
+
+
+ # 🧩 API Monetization Gateway
 
 This project is a **.NET 8 Web API** that demonstrates how to build an **API Monetization Gateway** —  
 a system that controls, tracks, and bills API usage based on customer tiers.
